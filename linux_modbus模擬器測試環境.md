@@ -1,14 +1,22 @@
 ## 為何寫此文件
 
-由於手邊工作會用的modbus協定, 而各廠商所提供 modbus設備可能只有文件, 實體設備並無法取得, 再加上開發環通常只在單機電腦, 因此常配合 modrssim, 以及 com0com 搭配在 windows環境上使用, 若是Linux環境通常要使用modbus模擬器, 常透過 modbus/TCP來使用。但如果設備只提供modbus RTU協定測試上還是較不方便, 因此發了一些時間調查與測試， 便將測試結果寫下來.
+由於手邊工作會用的modbus協定, 而各廠商所提供 modbus設備可能只有文件, 實體設備並無法取得, 再加上開發環通常只在單機電腦, 因此常配合 modrssim, 以及 com0com 搭配在 windows環境上使用, 若是Linux環境通常要使用modbus模擬器, 常透過 modbus/TCP來使用。但如果設備只提供modbus RTU協定測試上還是較不方便, 因此花了一些時間調查與測試， 便將測試結果寫下來.
 
 ## modrssim 在 Linux/WINE 環境下的執行
 
-Modrssim 必須在Linux下需執行於 WINE下， 但 若要執行RTU模式則需要 WINE的COM PORT, 可使用<a href="https://github.com/esmi/wineser"> wineser/mkcom.sh</a>來產生兩個虛擬的COM Port, 實際上連結到 /dev/ttyUSBLocal, 及/dev/ttyUSBRemote(這兩個tyy是透過socat/vserp.sh 產生的端點), 請參考以下文件
+<a href="https://sourceforge.net/projects/modrssim2/">Modrssim</a> 必須在Linux下需執行於 WINE下， 但 若要執行RTU模式則需要 WINE的COM PORT, 可使用<a href="https://github.com/esmi/wineser"> wineser/mkcom.sh</a>來產生兩個虛擬的序列埠 COM1, COM2, 實際上連結到 <a href="https://github.com/esmi/wineser/blob/master/vserp.sh">vserp.sh</a> 建立的 linux 虛擬序列埠對 /dev/ttyUSBLocal, 及/dev/ttyUSBRemote(這兩個tty是透過socat/vserp.sh 產生的端點), 請參考以下文件
 
+PS:
+```
+vserp.sh 建立 linux 的 虛擬序列埠對:
+/dev/ttyUSBLocal for com2: linux 端使用
+/dev/ttyUSBRemote for com1: wine port 使用 (for modrssim2)
+
+WINE 版本：2.4
+```
 <img src="image/modbus_modrssim_serial_port_linux.png">
 
-WINE COM PORT <a href="https://www.onetransistor.eu/2015/12/wine-serial-port-linux.html">設定原理請參考此連結</a>
+WINE COM PORT <a href="https://www.onetransistor.eu/2015/12/wine-serial-port-linux.html">設定原理請參考"Set up the serial port in Wine"</a>
 
 ## modrssim 配合 <a href="https://github.com/3cky/mbusd">mbusd</a>
 
