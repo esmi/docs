@@ -27,8 +27,7 @@ WINE COM PORT <a href="https://www.onetransistor.eu/2015/12/wine-serial-port-lin
 
 ## Modrssim 模擬真實設備的問題
 
-TODO:
-通常Modrssim 模擬真實設備讀取資料是沒有問題， 但如果設備"設定資料"會反應到讀取資料的區域是有問題的, 他的解決方式是寫'vbscript'來處理, 此問題目前未測試完(所以這部份位完成)
+通常Modrssim 模擬真實設備讀取資料是沒有問題， 但如果設備"設定資料"會反應到讀取資料的區域是有問題的, 他的解決方式需要以'vbscript'來處理, 請參考<a href="https://github.com/esmi/mrsvbs">mrsvbs</a>以及<a href="https://github.com/esmi/docs/blob/master/CC81.md">CC81.md</a>對cc81硬體特徵的描述,在 esmi/mrsvbs 中的 <a href="https://github.com/esmi/mrsvbs/blob/master/CC81.vbs">CC81.vbs</a>，是為了處理此類問題(針對CC81硬體特徵).
 
 ## 透過 phpmodbus 使用 modrssim 的問題(modbus/TCP)
 
