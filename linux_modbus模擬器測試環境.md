@@ -1,6 +1,6 @@
-## 為何寫此文件
+## 關於此文件
 
-由於手邊工作會用的modbus協定, 而各廠商所提供 modbus設備可能只有文件, 實體設備並無法取得, 再加上開發環通常只在單機電腦, 因此常配合 modrssim, 以及 com0com 搭配在 windows環境上使用, 若是Linux環境通常要使用modbus模擬器, 常透過 modbus/TCP來使用。但如果設備只提供modbus RTU協定測試上還是較不方便, 因此花了一些時間調查與測試， 便將測試結果寫下來.
+由於手邊工作會用的modbus協定, 此處特別會偏重於Modbus RTU設備, 而各廠商實體設備經常無法即時取得, 但有文件, 再加上開發環通常只在單機電腦, 因此常配合 modrssim/modrssim2, 以及 com0com 搭配在 windows環境上使用, 若是Linux環境通常要使用modbus模擬器, 常透過 modbus/TCP來使用。但如果設備只提供modbus RTU協定測試上還是較不方便, 因此花了一些時間調查與測試， 便將測試結果寫下來.
 
 ## modrssim 在 Linux/WINE 環境下的執行
 
@@ -27,12 +27,12 @@ WINE COM PORT <a href="https://www.onetransistor.eu/2015/12/wine-serial-port-lin
 
 ## Modrssim 模擬真實設備的問題
 
-通常Modrssim 模擬真實設備讀取資料是沒有問題， 但如果設備"設定資料"會反應到讀取資料的區域是有問題的, 他的解決方式需要以'vbscript'來處理, 請參考<a href="https://github.com/esmi/mrsvbs">mrsvbs</a>以及<a href="https://github.com/esmi/docs/blob/master/CC81.md">CC81.md</a>對cc81硬體特徵的描述,在 esmi/mrsvbs 中的 <a href="https://github.com/esmi/mrsvbs/blob/master/CC81.vbs">CC81.vbs</a>，是為了處理此類問題(針對CC81硬體特徵).
+通常Modrssim 模擬真實設備可讀/寫資料， 但設備"設定資料"會反應到讀取資料的區域時, 則需要以'vbscript'來執行此類"動作", 請參考<a href="https://github.com/esmi/mrsvbs">mrsvbs</a>以及<a href="https://github.com/esmi/docs/blob/master/CC81.md">CC81.md</a>對cc81硬體特徵的描述,在 mrsvbs 中的 <a href="https://github.com/esmi/mrsvbs/blob/master/CC81.vbs">CC81.vbs</a>，是為了處理此類問題的一個例子(針對CC81硬體特徵).
 
-## 透過 phpmodbus 使用 modrssim 的問題(modbus/TCP)
+## 透過 phpmodbus 使用 modrssim modbus/TCP 的問題
 
 Modrssim 的TCP 選項 "linger on close of socket"選項"打勾", 此選項modrssim會將"IDLE"過長的socket close 掉, modrssim console 則會"Closing socket, Idle for too long."
-但如果配合的modbusT/TCP"實體硬體"未提供此選項時, 則需修改"phpmodbus"的源碼
-<a href="https://github.com/SebastianBaeumler/phpmodbus/network">請參考SebastianBaeumler
+但如果配合的modbusT/TCP"實體硬體"未提供此選項時, 則需修改"phpmodbus"的源碼請參考
+<a href="https://github.com/SebastianBaeumler/phpmodbus">SebastianBaeumler
 /
 phpmodbus版本</a>的phpmodbus或許可以解決, 以配合硬體的運作, 如DAE的設備,則必須"一直" connect著！
