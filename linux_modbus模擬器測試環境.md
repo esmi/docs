@@ -25,9 +25,9 @@ WINE COM PORT <a href="https://www.onetransistor.eu/2015/12/wine-serial-port-lin
 請參考下圖
 <img src="image/modbus_mbusd_modrssim.png">
 
-## Modrssim 模擬真實設備的問題
+## Modrssim 使用 vbscript 模擬真實設備的特徵
 
-通常Modrssim 模擬真實設備可讀/寫資料， 但設備"設定資料"會反應到讀取資料的區域時, 則需要以'vbscript'來執行此類"動作", 請參考<a href="https://github.com/esmi/mrsvbs">mrsvbs</a>以及<a href="https://github.com/esmi/docs/blob/master/CC81.md">CC81.md</a>對cc81硬體特徵的描述,在 mrsvbs 中的 <a href="https://github.com/esmi/mrsvbs/blob/master/CC81.vbs">CC81.vbs</a>，是為了處理此類問題的一個例子(針對CC81硬體特徵).
+通常Modrssim 模擬真實設備可讀/寫資料， 但設備"設定資料"會反應到讀取資料的區域時, 則需要以'vbscript'來執行此類"動作/特徵", 請參考<a href="https://github.com/esmi/mrsvbs">mrsvbs</a>以及<a href="https://github.com/esmi/docs/blob/master/CC81.md">CC81.md</a>對cc81硬體特徵的描述,在 mrsvbs 中的 <a href="https://github.com/esmi/mrsvbs/blob/master/CC81.vbs">CC81.vbs</a>，是為了處理此類"設備特徵"的一個例子(針對CC81硬體特徵).
 
 ## 透過 phpmodbus 使用 modrssim modbus/TCP 的問題
 
