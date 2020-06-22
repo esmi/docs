@@ -11,3 +11,7 @@
 
 ### Modbus Device Under Modrssim Animation
 <a href="https://github.com/esmi/docs/blob/master/CC81.md">CC81</a>
+
+
+## MinGW
+### build dll using mingw under linux, and run test under WINE
