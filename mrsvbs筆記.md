@@ -27,3 +27,5 @@
 
 
 ```
+## 例子
+  <a href="https://github.com/esmi/mrsvbs/blob/master/CC81.vbs">esmi/mrsvbs/CC81.vbs</a>
