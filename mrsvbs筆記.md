@@ -1,4 +1,4 @@
-## 在wine 下 執行 modrssim 需安裝的元件
+## 在wine 下使用 modrssim 執行VBScript 需安裝的元件
 ```
   使用 winetricks 安裝以下元件
   wsh56js
@@ -18,7 +18,7 @@
 
 ```
 
-## Modrssim 看起來是不能用 "Class" 語法
+## Modrssim 看起來是不能用 "Class" 語法(需確認)
 ## mrsvbs 注意事項
 
 ```
