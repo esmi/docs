@@ -1,4 +1,13 @@
 # docs
+## PHP 相關
+
+<a href="https://github.com/esmi/modbus">modbus相關</a><br>
+<a href="https://github.com/esmi/ds">ds 相關</a><br>
+<a href="https://github.com/esmi/logger">logger 相關</a><br>
+<a href="https://github.com/esmi/ScadaTags">Scada Tags 相關</a><br>
+
+其他需補上
+
 ## Serial Port simulator
 
 <a href="https://github.com/esmi/docs/blob/master/RS232%20%E7%9A%84%E6%A8%A1%E6%93%AC%E6%B8%AC%E8%A9%A6.md">RS232 的模擬測試</a>
