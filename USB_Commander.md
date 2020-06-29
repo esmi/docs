@@ -3,6 +3,7 @@
 
 USB commander 透過串列埠取得命令, 並由queue中取得影像, 並分別檢查其品質.
 
+
 請參考下圖
 <img src="image/usb_commander.png">
 

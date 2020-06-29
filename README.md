@@ -25,3 +25,10 @@
 ## MinGW
 ### build dll using mingw under linux, and run test under WINE
 <a href="https://github.com/esmi/sampleDLL">esmi/sampleDLL</a>
+
+## 影像辨識
+### 人臉辨識-門禁應用-流程架構圖
+<a href="">人臉辨識-門禁應用-流程架構圖</a>
+
+### USB—COMMANDER：辨識USB connector的舌片,金腳, 與共面
+<a href="">USB-commander</a
