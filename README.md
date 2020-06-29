@@ -28,7 +28,7 @@
 
 ## 影像辨識
 ### 人臉辨識-門禁應用-流程架構圖
-<a href="">人臉辨識-門禁應用-流程架構圖</a>
+<a href="https://github.com/esmi/docs/blob/master/%E4%BA%BA%E8%87%89%E8%BE%A8%E8%AD%98-%E9%96%80%E7%A6%81%E6%87%89%E7%94%A8-%E6%B5%81%E7%A8%8B%E6%9E%B6%E6%A7%8B%E5%9C%96.md">人臉辨識-門禁應用-流程架構圖</a>
 
 ### USB—COMMANDER：辨識USB connector的舌片,金腳, 與共面
-<a href="">USB-commander</a
+<a href="https://github.com/esmi/docs/blob/master/USB_Commander.md">USB-commander</a
