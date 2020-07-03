@@ -8,12 +8,12 @@ mywifi=`env LANG=C nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f
 #testcmd='wget -qSO- --max-redirect=0 google.com 2>&1 | grep -i location:'
 avaiable=false
 
-if [[ "$mywifi". == "$target". ]]; then
+if [[ "$mywifi". = "$target". ]]; then
 
   location=`wget -qSO- --max-redirect=0 google.com 2>&1 | grep -i location:`
   isgoogle=`echo $location | grep -i google`
 
-  if [[ "$isgoogle". == "". ]] ; then
+  if [[ "$isgoogle". = "". ]] ; then
     #available=false
     login=`echo $location | sed -e 's/Location: //g' -e 's/?.*$//g'`
     hs_server=`echo $location | sed -e 's/Location: .*?//g' -e 's/&Qv=.*$//g' -e 's/^.*=//g'`
@@ -51,7 +51,7 @@ if [[ "$mywifi". == "$target". ]]; then
     #  --save-cookies cookies.txt
     wget \
          --post-data $post_data \
-         $action
+         $action 2>&1 > /dev/null
 
     echo "SKML WIFI has been re-connected!"
   else
