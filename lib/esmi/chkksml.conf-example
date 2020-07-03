@@ -1,0 +1,5 @@
+# fix flowing data, and change file name
+# to chkksml.conf-example to chkksml.conf
+
+f_user=yourksml_id
+f_password=yourksml_password

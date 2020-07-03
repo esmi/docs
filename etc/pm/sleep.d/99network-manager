@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case "$1" in
+  hibernate)
+    ;;
+  thaw)
+    service network-manager restart
+    ;;
+  suspend)
+    ;;
+  resume)
+    ;;
+esac
