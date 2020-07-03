@@ -1,0 +1,9 @@
+#!/bin/sh
+IWCONFIG=/sbin/iwconfig
+WLAN_IFACE=wlan1
+if [ ! -x $IWCONFIG ]; then
+    exit 1
+fi
+if [ "$IFACE" = $WLAN_IFACE ]; then
+    $IWCONFIG $IFACE power off
+fi
