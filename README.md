@@ -32,3 +32,6 @@
 
 ### USB—COMMANDER：辨識USB connector的舌片,金腳, 與共面
 <a href="https://github.com/esmi/docs/blob/master/USB_Commander.md">USB-commander</a
+
+## 疑難雜症
+<a href="我的疑難雜症.md">我的疑難雜症</a>
