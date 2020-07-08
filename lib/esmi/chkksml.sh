@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# chksml.conf: please ref "chksml.conf-exasmple"
 source chkksml.conf
 
 target="ksml"
