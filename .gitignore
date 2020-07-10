@@ -6,3 +6,4 @@ bin/cookies.txt
 bin/hslogin.cgi*
 bin/*synctime
 bin/9*
+*.log
