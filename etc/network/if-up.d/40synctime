@@ -1,10 +1,18 @@
 #!/bin/bash
-exec 1>/var/log/network.synctime.log 2>&1
 
 . /lib/esmi/local-functions.sh
 . /lib/esmi/chkksml.conf
 
 chkksmlNetworking
 
+exec 1>/var/log/network.synctime.log 2>&1
+
 date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
 hwclock -w
+ntpstat=`sudo service ntp status`
+echo ntpstat: $ntpstat
+if [[ $ntpstat == *"not running"* ]]; then
+  echo "ntp not running! do ntpupdate"
+  ntpdate -d 0.tw.pool.ntp.org
+  hwclock -w
+fi
