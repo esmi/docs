@@ -13,6 +13,6 @@ ntpstat=`sudo service ntp status`
 echo ntpstat: $ntpstat
 if [[ $ntpstat == *"not running"* ]]; then
   echo "ntp not running! do ntpupdate"
-  ntpdate -d 0.tw.pool.ntp.org
+  ntpdate  0.tw.pool.ntp.org
   hwclock -w
 fi
