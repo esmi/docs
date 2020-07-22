@@ -54,11 +54,11 @@ if [[ "$mywifi". = "$target". ]]; then
          --post-data $post_data \
          $action 2>&1 > /dev/null
 
-    echo "SKML WIFI has been re-connected!"
+    echo "$target WIFI has been re-connected!"
   else
-    echo "KSML WIFI is available, location($loaction) is valided!"
+    echo "$target WIFI is available, location($loaction) is valided!"
     #available=true
-    exit 1
+    #exit 1
   fi
 
 fi
