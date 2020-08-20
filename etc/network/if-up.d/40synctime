@@ -3,16 +3,19 @@
 . /lib/esmi/local-functions.sh
 . /lib/esmi/chkksml.conf
 
-chkksmlNetworking
 
-exec 1>/var/log/network.synctime.log 2>&1
+exec 1>>/var/log/network.synctime.log 2>&1
+
+echo run check skml networing.....
+chkksmlNetworking
+#exec 1>./network.synctime.log 2>&1
 
 date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
 hwclock -w
-ntpstat=`sudo service ntp status`
+ntpstat=`service ntp status`
 echo ntpstat: $ntpstat
 if [[ $ntpstat == *"not running"* ]]; then
   echo "ntp not running! do ntpupdate"
-  ntpdate  0.tw.pool.ntp.org
-  hwclock -w
+  #ntpdate  0.tw.pool.ntp.org
+  #hwclock -w
 fi

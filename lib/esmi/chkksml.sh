@@ -4,13 +4,15 @@
 source chkksml.conf
 
 target="ksml"
+# for trusty
 mywifi=`env LANG=C nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2`
-
+# for focal
+mywifi=`nmcli connection show --active | grep -i $target | sed 's/ .*$//g'`
 #testcmd='wget -qSO- --max-redirect=0 google.com 2>&1 | grep -i location:'
 avaiable=false
 
 if [[ "$mywifi". = "$target". ]]; then
-
+  echo "target is $target"
   location=`wget -qSO- --max-redirect=0 google.com 2>&1 | grep -i location:`
   isgoogle=`echo $location | grep -i google`
 

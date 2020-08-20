@@ -3,22 +3,27 @@
 chkksmlNetworking() {
 
   #source chkksml.conf
-  log=/var/log/network.ksml.log
+  #log=/var/log/network.ksml.log
   target="ksml"
-  mywifi=`env LANG=C nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2`
+  echo =========================
+  #mywifi=`env LANG=C nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2`
+  echo nmcli connection show --active | grep -i $target | sed 's/ .*$//g'
+  mywifi=`nmcli connection show --active | grep -i $target | sed 's/ .*$//g'`
 
   echo "target: " $target ", mywifi: " $mywifi
   #testcmd='wget -qSO- --max-redirect=0 google.com 2>&1 | grep -i location:'
   #avaiable=false
-
   if [ "$mywifi". = "$target". ]; then
 
     location=`wget -qSO- --max-redirect=0 google.com 2>&1 | grep -i location:`
-    echo "location: $location" | tee -a $log
+    echo location: $location
+    echo "location: $location"
+
     isgoogle=`echo $location | grep -i google`
 
     if [ "$isgoogle". = "". ] ; then
       #available=false
+
       echo "Try reconnect to $mywifi!"
       #echo "pwd: " `pwd`
 
@@ -56,10 +61,11 @@ chkksmlNetworking() {
       post_data="'f_user=$f_user&f_pass=$f_pass&f_hs_server=$f_hs_server&f_Qv=$f_Qv'"
 
       #  --save-cookies cookies.txt
-      echo POST KSML data to: $action
+      echo POST KSML action to: $action
+      echo POST data: $post_data
       isSucc=`wget \
            --post-data $post_data \
-           $action -O - 2>&1 | tee -a $log | \
+           $action -O - 2>&1 | \
            grep -i "Authentication Success"`
            # > /dev/null
       echo "isSucc:" $isSucc
